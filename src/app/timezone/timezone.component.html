@@ -1,0 +1,9 @@
+<div class="mb-10">
+  <p class="fw-800">{{ timezone?.name }}</p>
+  <p>
+    <span *ngIf="timezone?.isUserTimezone">Jelenlegi időzóna:</span>
+    {{ currentTime }}
+  </p>
+  <button (click)="getCurrentTimeForTimezone()">Frissítés</button>
+  <button [disabled]="timezone?.isUserTimezone" (click)="setCurrentTimezone()">Jelenleginek jelöl</button>
+</div>

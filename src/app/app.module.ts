@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { TimezoneComponent } from './timezone/timezone.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TimezoneComponent
   ],
   imports: [
     BrowserModule
