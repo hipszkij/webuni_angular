@@ -10,14 +10,12 @@ export class AppComponent {
 
   timezone1 = {
     name: 'Europe/Budapest',
-    isUserTimezone: true,
-    isActive: true
+    isUserTimezone: true
   };
 
   timezone2 = {
     name: 'US/Hawaii',
-    isUserTimezone: false,
-    isActive: false
+    isUserTimezone: false
   };
 
   timezoneChanged(changes: any): void {

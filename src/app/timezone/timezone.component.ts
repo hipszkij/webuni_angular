@@ -10,8 +10,7 @@ export class TimezoneComponent implements OnInit {
   @Input()
   timezone: {
     name: string,
-    isUserTimezone: boolean,
-    isActive: boolean
+    isUserTimezone: boolean
   } | undefined;
 
   @Output()
