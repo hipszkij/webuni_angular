@@ -1,3 +1,9 @@
 <h1>{{ title }}</h1>
-<app-counter [aim]="aim" [counter]="counter" (countChange)="countChanged($event)"></app-counter>
+<div>
+    <label>Hány számlálót szeretnél?</label>
+    <input [(ngModel)]="counterCount" (ngModelChange)="counterCountChanged()" type="number">
+    {{ counterCount }}
+</div>
+
+<app-counter *ngFor="let c of counters" [aim]="c.aim" [counter]="{name: c.name, id: c.id}"></app-counter>
 <img [src]="logoSrc"/>
