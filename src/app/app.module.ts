@@ -7,7 +7,7 @@ import { CounterComponent } from './counter/counter.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CounterComponent
+    CounterComponent,
   ],
   imports: [
     BrowserModule
