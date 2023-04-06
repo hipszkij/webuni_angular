@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Timezone } from 'src/interfaces/timezone';
 
 @Component({
   selector: 'app-timezone',
@@ -8,13 +9,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class TimezoneComponent implements OnInit {
   @Input()
-  timezone: {
-    name: string,
-    isUserTimezone: boolean
-  } | undefined;
+  timezone: Timezone | undefined;
 
   @Output()
-  changeTimezone = new EventEmitter<object>();
+  changeTimezone = new EventEmitter<number>();
 
   currentTime: string | undefined;
 
@@ -25,14 +23,11 @@ export class TimezoneComponent implements OnInit {
   }
 
   getCurrentTimeForTimezone(): void {
-    this.currentTime = new Date().toLocaleString("hu-HU", { timeZone: this.timezone?.name });
+    this.currentTime = new Date().toLocaleString("hu-HU", { timeZone: this.timezone!.name });
   }
 
   setCurrentTimezone(): void {
-    this.timezone!.isUserTimezone = true;
-    this.changeTimezone.emit({
-      timezoneName: this.timezone!.name,
-      isUserTimezone: this.timezone!.isUserTimezone
-    });
+    this.timezone!.isCurrentTimezone = true;
+    this.changeTimezone.emit(this.timezone!.id);
   }
 }

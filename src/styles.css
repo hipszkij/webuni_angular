@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 {
+    font-size: 32px;
+    text-decoration: underline;
+}
+
+.container {
+    width: 400px;
+}

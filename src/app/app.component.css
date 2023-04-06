@@ -1,0 +1,10 @@
+.controls{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid;
+}
+
+.controls > * {
+    margin-right: 10px;
+}

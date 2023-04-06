@@ -5,3 +5,33 @@
 .fw-800 {
     font-weight: 800;
 }
+
+.center {
+    text-align: center;
+}
+
+.timezone_container {
+    margin-bottom: 10px;
+    border: 1px solid;
+    padding: 5px;
+    background-color: beige;
+}
+
+button {
+    background-color: coral;
+    color: white;
+    border: 1px solid white;
+    padding: 5px;
+}
+
+button[disabled] {
+    background-color: grey;
+}
+
+.button_container {
+    display: grid;
+}
+
+.selected {
+    background-color: goldenrod;
+}

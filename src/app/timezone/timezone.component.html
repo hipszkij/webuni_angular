@@ -1,9 +1,16 @@
-<div class="mb-10">
-  <p class="fw-800">{{ timezone?.name }}</p>
+<div [class.selected]="timezone!.isCurrentTimezone" class="timezone_container">
+  <p class="fw-800"><input type="text" [(ngModel)]="timezone!.name"></p>
   <p>
-    <span *ngIf="timezone?.isUserTimezone">Jelenlegi időzóna:</span>
-    {{ currentTime }}
+    <span *ngIf="timezone!.isCurrentTimezone">Jelenlegi időzóna:</span>
+    {{ currentTime | date : "YYYY-MM-dd HH:mm:ss" }}
   </p>
-  <button (click)="getCurrentTimeForTimezone()">Frissítés</button>
-  <button [disabled]="timezone?.isUserTimezone" (click)="setCurrentTimezone()">Jelenleginek jelöl</button>
+  <div class="button_container">
+    <button (click)="getCurrentTimeForTimezone()">Frissítés</button>
+    <button
+      [disabled]="timezone!.isCurrentTimezone"
+      (click)="setCurrentTimezone()"
+    >
+      Jelenleginek jelöl
+    </button>
+  </div>
 </div>

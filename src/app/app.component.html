@@ -1,3 +1,23 @@
-<app-timezone [timezone]="timezone1" (changeTimezone)="timezoneChanged($event)"></app-timezone>
+<h1>Timezones</h1>
 
-<app-timezone [timezone]="timezone2" (changeTimezone)="timezoneChanged($event)"></app-timezone>
+<div class="container">
+  <label>Hány időzónát szeretnél kilistázni?</label>
+  <div class="controls">
+    <select #selectedTimezone *ngIf="timezones.length < this.timezoneLimit">
+      <option *ngFor="let element of availableTimezones" [value]="element">
+        {{ element }}
+      </option>
+    </select>
+    <button
+      *ngIf="timezones.length < this.timezoneLimit"
+      (click)="addNewTimezone()"
+    >
+      Új hozzáadása
+    </button>
+  </div>
+  <app-timezone
+    *ngFor="let element of timezones"
+    [timezone]="element"
+    (changeTimezone)="timezoneChanged($event)"
+  ></app-timezone>
+</div>
