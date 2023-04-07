@@ -1,0 +1,38 @@
+.table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.header-row {
+  display: table-row;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: grey;
+  color: white;
+}
+
+.row {
+  display: table-row;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.row:nth-child(even) {
+  background-color: #e4e2e2;
+}
+
+.row:nth-child(odd) {
+  background-color: #bcbaba;
+}
+
+.cell {
+  display: table-cell;
+  padding: 10px;
+  border: 2px solid white;
+}
+
+.selected {
+  font-weight: 800;
+}

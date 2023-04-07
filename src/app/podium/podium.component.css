@@ -1,0 +1,11 @@
+.podium_list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.podium_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

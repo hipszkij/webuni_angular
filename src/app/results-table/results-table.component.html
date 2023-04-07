@@ -1,0 +1,28 @@
+<div class="table">
+  <div class="header-row">
+    <div class="cell">Futam</div>
+    <div class="cell">Dátum</div>
+    <div class="cell">Győztes</div>
+    <div class="cell">Csapat</div>
+    <div class="cell">Körök száma</div>
+  </div>
+  <div
+    class="row"
+    *ngFor="let item of results; let i = index"
+    (click)="selectRow(i)"
+    [class.selected]="isSelectedRow(i)"
+  >
+    <div class="cell">{{ item.grandPrix }}</div>
+    <div class="cell">{{ item.date | date : "M/dd/yy" }}</div>
+    <div class="cell">{{ item.winner }}</div>
+    <div class="cell">{{ item.team | uppercase }}</div>
+    <div class="cell">{{ item.laps }}</div>
+  </div>
+</div>
+
+<div *ngIf="selectedRowIndex != null" class="podium">
+  <app-podium
+    [podium]="getPodiumForSelectedResult()"
+    (hidePodiumEmitter)="hidePodium()"
+  ></app-podium>
+</div>

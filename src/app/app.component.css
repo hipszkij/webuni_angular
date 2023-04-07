@@ -1,0 +1,24 @@
+.header {
+  margin-bottom: 20px;
+  display: table-row;
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.logo {
+  width: 200px;
+  height: 142px;
+  display: table-cell;
+}
+
+.logo > img {
+  width: 200px;
+  height: 142px;
+}

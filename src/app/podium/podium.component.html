@@ -1,0 +1,10 @@
+<div class="podium_container">
+  <div class="podium_list">
+    <ol>
+      <li *ngFor="let item of podium">{{ item }}</li>
+    </ol>
+  </div>
+  <div class="podium_button">
+    <button (click)="hidePodium()">Elrejt</button>
+  </div>
+</div>
