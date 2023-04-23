@@ -1,0 +1,61 @@
+.table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+
+    .thead {
+        display: table-header-group;
+        text-align: center;
+        background-color: #939393;
+
+        .tr {
+            display: table-row;
+
+            .th {
+                display: table-cell;
+                font-weight: bold;
+                padding: 10px;
+                vertical-align: middle;
+            }
+
+        }
+    }
+
+    .tbody {
+        display: table-row-group;
+
+        .tr {
+            display: table-row;
+
+            &:nth-child(odd) {
+                background-color: #dedede;
+            }
+
+            .td {
+                display: table-cell;
+                padding: 10px;
+                text-align: center;
+                vertical-align: middle;
+
+            }
+
+            .btn {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                outline: none;
+                padding: 0;
+            }
+
+            .id {
+                &::after {
+                    content: ".";
+                }
+            }
+
+            .title {
+                text-align: left;
+            }
+        }
+    }
+}
