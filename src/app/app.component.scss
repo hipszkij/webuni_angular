@@ -1,0 +1,21 @@
+$btn-height: 28px;
+
+.basic-button {
+    height: $btn-height;
+    width: $btn-height * 3;
+    border: none;
+    border-radius: 4px;
+}
+
+.primary-button {
+    @extend .basic-button;
+
+    background-color:blueviolet;
+    color: white;
+
+    &:hover {
+        background-color: aquamarine;
+        color: black;
+        cursor: pointer;
+    }
+}
