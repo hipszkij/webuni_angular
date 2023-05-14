@@ -13,11 +13,12 @@ export class TaskCreateComponent implements OnInit {
 
   constructor(private taskService: TaskService, private router: Router,) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   saveTask(): void {
-    this.taskService.createTask(this.name, this.desc);
-    this.router.navigate(['/taskboard']);
+    if (this.name.trim() !== '' && this.desc.trim() !== '') {
+      this.taskService.createTask(this.name, this.desc);
+      this.router.navigate(['/taskboard']);
+    }
   }
 }
