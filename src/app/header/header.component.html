@@ -1,0 +1,8 @@
+<header class="header">
+  <div class="user-info">
+    <span>Belépve: {{ username }}</span>
+    <button *ngIf="isCreateView" class="new-task-button" (click)="backToDashboard()">Vissza</button>
+    <button *ngIf="!isCreateView" class="new-task-button" (click)="newTask()">Új feladat</button>
+    <button class="logout-button" (click)="logout()">Kijelentkezés</button>
+  </div>
+</header>

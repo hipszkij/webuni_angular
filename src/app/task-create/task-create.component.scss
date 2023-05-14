@@ -1,0 +1,28 @@
+@import '../../styles.scss';
+
+.task-form-container {
+    background-color: $backgroundColor;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-top: 20px;
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    label {
+        color: $textColor;
+        font-weight: bold;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: none;
+        border-radius: 5px;
+    }
+}
+

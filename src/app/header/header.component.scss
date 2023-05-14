@@ -1,0 +1,28 @@
+@import '../../styles.scss';
+
+.header {
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: $backgroundColor;
+
+    .user-info {
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-right: 10px;
+            font-weight: bold;
+            color: $textColor;
+        }
+    }
+
+    .new-task-button {
+        margin-left: auto;
+        cursor: pointer;
+    }
+
+    .logout-button {
+        margin-left: 10px;
+    }
+}

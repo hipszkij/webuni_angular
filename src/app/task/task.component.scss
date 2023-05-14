@@ -1,0 +1,30 @@
+$backgroundColor: #066f82;
+$backgroundColorBtn: #cfe110;
+$textColorBtn: #000000;
+$textColor: #ffffff;
+
+.task {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $backgroundColor;
+    padding: 10px 5px 10px 5px;
+    border-radius: 5px;
+    margin-right: 20px;
+    margin-left: 20px;
+
+    .text {
+        margin-right: auto;
+        color: $textColor;
+    }
+
+    .button {
+        background-color: $backgroundColorBtn;
+        color: $textColorBtn;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}

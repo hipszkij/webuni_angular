@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+$backgroundColor: #066f82;
+$backgroundColorBtn: #cfe110;
+$textColorBtn: #000000;
+$textColor: #ffffff;
+
+button {
+    background-color: $backgroundColorBtn;
+    color: $textColorBtn;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}

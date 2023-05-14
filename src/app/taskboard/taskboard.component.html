@@ -1,0 +1,11 @@
+<app-header></app-header>
+
+<div class="task-container">
+  <h2>Feladatok</h2>
+  <app-task [taskList]="this.tasks" (taskCompleted)="this.setTaskCompleted($event)"></app-task>
+</div>
+
+<div class="task-container">
+  <h2>Kész feladatok</h2>
+  <app-task [taskList]="this.completedTasks" (taskCompleted)="this.setTaskCompleted($event)"></app-task>
+</div>
