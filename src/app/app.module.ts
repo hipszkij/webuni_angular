@@ -10,6 +10,7 @@ import { TaskComponent } from './task/task.component';
 import { TaskboardComponent } from './taskboard/taskboard.component';
 import { TaskCreateComponent } from './task-create/task-create.component';
 import { HeaderComponent } from './header/header.component';
+import { TaskTextPipe } from './task/task-text.pipe';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { HeaderComponent } from './header/header.component';
     TaskboardComponent,
     TaskCreateComponent,
     HeaderComponent,
+    TaskTextPipe,
   ],
   providers: [LocalStorageService],
   bootstrap: [AppComponent]

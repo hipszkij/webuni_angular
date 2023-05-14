@@ -1,4 +1,4 @@
 <div *ngFor="let task of taskList" class="task">
-    <div class="text">{{ task.name }}</div>
+    <div class="text">{{ task | taskText }}</div>
     <button *ngIf="!task.isCompleted" class="button" (click)="this.markTaskCompleted(task.id)">Kész</button>
 </div>
