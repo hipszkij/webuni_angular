@@ -4,18 +4,20 @@ import { NewIdeaComponent } from './new-idea/new-idea.component';
 import { ListIdeasComponent } from './list-ideas/list-ideas.component';
 import { IdeaComponent } from './idea/idea.component';
 import { VoteComponent } from './vote/vote.component';
+import { IdeasRoutingModule } from './ideas-routing.module';
 
 
 
 @NgModule({
   declarations: [
+    IdeaComponent,
     NewIdeaComponent,
     ListIdeasComponent,
-    IdeaComponent,
     VoteComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    IdeasRoutingModule
   ]
 })
 export class IdeasModule { }

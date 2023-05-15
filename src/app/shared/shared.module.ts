@@ -10,6 +10,9 @@ import { SearchComponent } from './search/search.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    SearchComponent
   ]
 })
 export class SharedModule { }
