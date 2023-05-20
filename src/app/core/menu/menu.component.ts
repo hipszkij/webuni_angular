@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/auth/auth.service';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  public isLoggedIn: boolean = false;
+  public isLoggedIn = false;
 
   constructor(private authService: AuthService) { }
 

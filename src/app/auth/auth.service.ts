@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private _baseUrl: string = `${environment.baseUrl}/auth`;
+  private _baseUrl = `${environment.baseUrl}/auth`;
   private _currentUser = new BehaviorSubject<User | undefined>(undefined);
   private readonly loggedInUserKey: string = 'loggedInUser';
 
@@ -22,13 +22,13 @@ export class AuthService {
 
     if (user) {
       this._currentUser.next(JSON.parse(user));
-    }
 
-    this.sessionInfo().subscribe((isLoggedIn: any) => {
-      if (!isLoggedIn) {
-        this.handleLogout();
-      }
-    })
+      this.sessionInfo().subscribe((isLoggedIn: any) => {
+        if (!isLoggedIn) {
+          this.handleLogout();
+        }
+      })
+    }
   }
 
   private sessionInfo(): any {
@@ -49,9 +49,13 @@ export class AuthService {
   public logout(): any {
     return this.http.post(`${this._baseUrl}/logout`, null).pipe(
       tap(_ => {
-       this.handleLogout();
+        this.handleLogout();
       })
     );
+  }
+
+  public registration(email: string, password: string): Observable<any> {
+    return this.http.post<{ id: string, email: string, name: string }>(`${this._baseUrl}/registration`, { email, password });
   }
 
   private handleLogout(): void {

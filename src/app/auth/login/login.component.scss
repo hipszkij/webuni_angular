@@ -12,4 +12,11 @@ mat-card {
     mat-form-field {
         width: 80%;
     }
+
+    mat-card-actions {
+        button:nth-child(2) {
+            margin-left: 10px;
+        }
+    }
+
 }
