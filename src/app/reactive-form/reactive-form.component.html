@@ -1,0 +1,121 @@
+<form [formGroup]="this.contactForm" (ngSubmit)="this.submitted()">
+  <p>
+    <label for="firstName">First name</label>
+    <input type="text" id="firstName" formControlName="firstName" />
+    <br />
+    <ng-container
+      *ngIf="
+        this.contactForm.controls['firstName'].invalid &&
+        (this.contactForm.controls['firstName'].dirty ||
+          this.contactForm.controls['firstName'].touched)
+      "
+    >
+      <span
+        class="error-message"
+        *ngIf="this.contactForm.controls['firstName'].errors!['required']"
+      >
+        First name must be provided!
+      </span>
+    </ng-container>
+  </p>
+
+  <p>
+    <label for="lastName">Last name</label>
+    <input type="text" id="lastName" formControlName="lastName" />
+    <br />
+    <ng-container
+      *ngIf="
+        this.contactForm.controls['lastName'].invalid &&
+        (this.contactForm.controls['lastName'].dirty ||
+          this.contactForm.controls['lastName'].touched)
+      "
+    >
+      <span
+        class="error-message"
+        *ngIf="this.contactForm.controls['lastName'].errors!['required']"
+      >
+        Last name must be provided!
+      </span>
+    </ng-container>
+  </p>
+
+  <p>
+    <label for="email">Email</label>
+    <input type="email" id="email" formControlName="email" />
+    <br />
+    <ng-container
+      *ngIf="
+        this.contactForm.controls['email'].invalid &&
+        (this.contactForm.controls['email'].dirty ||
+          this.contactForm.controls['email'].touched)
+      "
+    >
+      <span
+        class="error-message"
+        *ngIf="this.contactForm.controls['email'].errors!['required']"
+      >
+        Email must be provided!
+      </span>
+      <span
+        class="error-message"
+        *ngIf="this.contactForm.controls['email'].errors!['email']"
+      >
+        Invalid email!
+      </span>
+    </ng-container>
+  </p>
+
+  <p>
+    <label for="gender">Gender</label>
+    <input type="radio" id="gender" value="male" formControlName="gender" />
+    Male
+    <input type="radio" id="gender" value="female" formControlName="gender" />
+    Female
+  </p>
+
+  <p>
+    <label for="isMarried">Married</label>
+    <input type="checkbox" id="isMarried" formControlName="isMarried" />
+  </p>
+  <p>
+    <label for="country">Country</label>
+    <select id="country" formControlName="country">
+      <option *ngFor="let country of this.countryList" [ngValue]="country.code">
+        {{ country.name }}
+      </option>
+    </select>
+  </p>
+
+  <div formGroupName="address">
+    <div class="form-group">
+      <label for="city">City</label>
+      <input
+        type="text"
+        class="form-control"
+        id="city"
+        formControlName="city"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="street">Street</label>
+      <input
+        type="text"
+        class="form-control"
+        id="street"
+        formControlName="street"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="postcode">Postcode</label>
+      <input
+        type="text"
+        class="form-control"
+        id="postcode"
+        formControlName="postcode"
+      />
+    </div>
+  </div>
+  <p><button [disabled]="this.contactForm.invalid">Submit</button></p>
+</form>
