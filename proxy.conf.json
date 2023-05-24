@@ -1,0 +1,7 @@
+{
+    "/api": {
+        "target": "https://libretranslate.com",
+        "secure": true,
+        "changeOrigin": true
+    }
+}
