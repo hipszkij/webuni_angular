@@ -8,10 +8,11 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { DictionaryModule } from './dictionary/dictionary.module';
+import { HeaderComponent } from './core/header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

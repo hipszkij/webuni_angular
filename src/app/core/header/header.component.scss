@@ -1,0 +1,28 @@
+$blue: #1565C0 !important;
+
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: $blue;
+    color: white;
+    align-items: center;
+    padding: 0 16px;
+
+    .title {
+        span {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .logo {
+            height: 32px;
+            margin-right: 10px;
+        }
+    }
+
+}
+
+.user_info {
+    align-items: center;
+    display: flex;
+}
