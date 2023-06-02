@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Language } from '../models/language.model';
@@ -12,13 +11,10 @@ import { DictionaryService } from '../dictionary.service';
 export class TranslateComponent implements OnInit {
   public dictionaryForm: FormGroup;
   public languages: Language[] = [];
-
   public selectedFromLanguage: string = "en";
   public selectedToLanguage: string = "hu";
 
-
   constructor(
-    private http: HttpClient,
     private dictionaryService: DictionaryService
   ) {
     this.dictionaryForm = new FormGroup({
@@ -43,18 +39,25 @@ export class TranslateComponent implements OnInit {
   }
 
   public translate(): void {
-    var formData = new FormData();
-    formData.append("q", this.dictionaryForm.value['textFrom']);
-    formData.append("source", this.dictionaryForm.value['languageFrom']);
-    formData.append("target", this.dictionaryForm.value['languageTo']);
+    let formData = new FormData();
+    formData.append("q", this.dictionaryForm.value.textFrom);
+    formData.append("source", this.dictionaryForm.value.languageFrom);
+    formData.append("target", this.dictionaryForm.value.languageTo);
     formData.append("format", "text");
 
     this.dictionaryService.translate(formData).subscribe(result => {
-      console.log(result);
-      //this.dictionaryForm.setValue(textTo: result);
+      this.dictionaryForm.patchValue({ textTo: result['translatedText'] });
     })
+  }
 
-    //console.log(this.dictionaryForm.value);
+  public clearForm() {
+    this.dictionaryForm.patchValue({
+      textFrom: '',
+      textTo: '',
+      languageFrom: this.selectedFromLanguage,
+      languageTo: this.selectedToLanguage
+    });
+    this.dictionaryForm.markAsUntouched();
   }
 
 }

@@ -8,15 +8,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DictionaryService {
-  private _baseUrl = `${environment.baseUrl}/translate`;
+  private _baseUrl = `${environment.baseUrl}`;
 
   constructor(private http: HttpClient) { }
 
   public getLanguages(): Observable<Language[]> {
-    return this.http.get<Language[]>(`${this._baseUrl}/get_languages`);
+    return this.http.get<Language[]>(`${this._baseUrl}/languages`);
   }
 
-  public translate(formData: FormData): Observable<string> {
-    return this.http.post<string>(`${this._baseUrl}`, formData);
+  public translate(formData: FormData): Observable<any> {
+    return this.http.post<any>(`${this._baseUrl}/translate`, formData);
   }
 }

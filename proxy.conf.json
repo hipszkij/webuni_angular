@@ -1,6 +1,6 @@
 {
     "/api": {
-        "target": "https://libretranslate.de",
+        "target": "http://192.168.0.230:4007",
         "secure": true,
         "changeOrigin": true
     }

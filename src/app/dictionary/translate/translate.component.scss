@@ -31,11 +31,11 @@
     }
 
     .from {
-      padding-right: 5px;
+      padding-right: 10px;
     }
 
     .to {
-      padding-left: 5px;
+      padding-left: 10px;
     }
 
     .translation-input {
@@ -54,6 +54,11 @@
         border: 1px solid #ccc;
         border-radius: 4px;
         resize: none;
+        padding: 5px;
+      }
+
+      .error-message {
+        color: red;
       }
     }
   }
