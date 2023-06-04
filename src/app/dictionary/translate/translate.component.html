@@ -7,8 +7,8 @@
       <div class="translation-card-content">
         <div class="translation-input-row">
           <div class="translation-input from">
-            <label for="translateFrom"
-              >Translate from
+            <mat-form-field>
+              <mat-label for="fromLanguage">Translate from</mat-label>
               <mat-select
                 [value]="this.selectedFromLanguage"
                 name="fromLanguage"
@@ -20,7 +20,7 @@
                   >{{ language.name }}</mat-option
                 >
               </mat-select>
-            </label>
+            </mat-form-field>
             <textarea
               matInput
               id="textFrom"
@@ -29,8 +29,7 @@
             <ng-container
               *ngIf="
                 this.dictionaryForm.controls['textFrom'].invalid &&
-                (this.dictionaryForm.controls['textFrom'].dirty ||
-                  this.dictionaryForm.controls['textFrom'].touched)
+                this.dictionaryForm.controls['textFrom'].touched
               "
             >
               <span
@@ -44,11 +43,11 @@
             </ng-container>
           </div>
           <div class="translation-input to">
-            <label for="translateTo"
-              >Translate into
+            <mat-form-field>
+              <mat-label for="toLanguage">Translate to</mat-label>
               <mat-select
                 [value]="this.selectedToLanguage"
-                name="fromLanguage"
+                name="toLanguage"
                 formControlName="languageTo"
               >
                 <mat-option
@@ -57,19 +56,39 @@
                   >{{ language.name }}</mat-option
                 >
               </mat-select>
-            </label>
+            </mat-form-field>
             <textarea
               matInput
               id="textTo"
               readonly
               formControlName="textTo"
             ></textarea>
+            <ng-container
+              *ngIf="
+                this.dictionaryForm.controls['languageTo'].touched &&
+                this.dictionaryForm.controls['languageTo'].value == 'auto'
+              "
+            >
+              <span class="error-message">
+                Auto is not supported!
+              </span>
+            </ng-container>
           </div>
         </div>
       </div>
       <div class="translation-card-actions">
-        <button mat-button (click)="this.translate()" [disabled]="this.dictionaryForm.value.textFrom === ''">Translate</button>
-        <button mat-button (click)="this.clearForm()">Clear</button>
+        <button
+          mat-fab
+          extended
+          color="primary"
+          (click)="this.translateText()"
+          [disabled]="this.dictionaryForm.invalid"
+        >
+          <mat-icon>g_translate</mat-icon>Translate
+        </button>
+        <button mat-fab extended color="primary" (click)="this.clearForm()">
+          <mat-icon>clear</mat-icon>Clear
+        </button>
       </div>
     </div>
   </form>

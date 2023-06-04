@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { User } from './auth/interfaces/user.interface';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'libre-translate';
+  public user: User | undefined;
+
+  constructor(private authService: AuthService) {
+    this.user = this.authService.getUserData();
+  }
 }

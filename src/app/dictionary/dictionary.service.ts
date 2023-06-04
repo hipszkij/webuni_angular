@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class DictionaryService {
   private _baseUrl = `${environment.baseUrl}`;
+  private _apiKey = `${environment.apiKey}`;
 
   constructor(private http: HttpClient) { }
 
@@ -18,5 +19,9 @@ export class DictionaryService {
 
   public translate(formData: FormData): Observable<any> {
     return this.http.post<any>(`${this._baseUrl}/translate`, formData);
+  }
+
+  public autodetect(text: string): Observable<any> {
+    return this.http.post<any>(`${this._baseUrl}/detect`, { q: text, api_key: this._apiKey });
   }
 }

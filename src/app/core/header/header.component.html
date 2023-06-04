@@ -4,6 +4,6 @@
     <span>LibreTranslate</span>
   </div>
   <div class="user_info">
-    <span>Belépve: Hipszki János</span>
+    <span *ngIf="this.user">Logged in: {{ this.user!.name }}</span>
   </div>
 </mat-toolbar>

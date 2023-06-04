@@ -1,1 +1,96 @@
-<p>registration works!</p>
+<div class="info_text">
+  <h2>You can use only three times without registration!</h2>
+  <h2>Please register!</h2>
+</div>
+<div class="registration">
+  <form [formGroup]="this.registrationForm" class="registration-form">
+    <p>
+      <ng-container
+        *ngIf="
+          this.registrationForm.controls['name'].invalid &&
+          (this.registrationForm.controls['name'].touched ||
+            this.registrationForm.controls['name'].dirty)
+        "
+      >
+        <span
+          class="error-message"
+          *ngIf="this.registrationForm.controls['name'].errors!['required']"
+        >
+          Please enter your name!
+        </span>
+        <br />
+      </ng-container>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="Enter your name" />
+      </mat-form-field>
+    </p>
+
+    <p>
+      <ng-container
+        *ngIf="
+          this.registrationForm.controls['email'].invalid &&
+          (this.registrationForm.controls['email'].touched ||
+            this.registrationForm.controls['email'].dirty)
+        "
+      >
+        <span
+          class="error-message"
+          *ngIf="this.registrationForm.controls['email'].errors!['required']"
+        >
+          Please enter your email!
+        </span>
+        <span
+          class="error-message"
+          *ngIf="this.registrationForm.controls['email'].errors!['email']"
+        >
+          Invalid email!
+        </span>
+        <br />
+      </ng-container>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          formControlName="email"
+          placeholder="Enter your email"
+        />
+      </mat-form-field>
+    </p>
+
+    <p>
+      <ng-container
+        *ngIf="
+          this.registrationForm.controls['phone'].invalid &&
+          (this.registrationForm.controls['phone'].touched ||
+            this.registrationForm.controls['phone'].dirty)
+        "
+      >
+        <span
+          class="error-message"
+          *ngIf="this.registrationForm.controls['phone'].errors!['required']"
+        >
+          Please enter your phone number!
+        </span>
+        <br />
+      </ng-container>
+      <mat-form-field appearance="fill">
+        <mat-label>Phone Number</mat-label>
+        <input
+          matInput
+          formControlName="phone"
+          placeholder="Enter your phone number"
+        />
+      </mat-form-field>
+    </p>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="this.registrationForm.invalid"
+      (click)="this.register()"
+    >
+      Register
+    </button>
+  </form>
+</div>
